@@ -2,8 +2,47 @@
     <head>
         
     </head>
-
     <body>
-    
+        <script>
+            let choices = ["rock", "paper", "scissors"];
+
+            function computerSelection(){
+                return choices[Math.floor(Math.random() * choices.length)];
+            }
+
+            function playerSelection(){
+                return prompt("Choose between rock, paper or scissors:").toLowerCase()
+            }
+
+            function playRound(playerChoice, computerChoice){
+                let playerWon = false
+
+                if (computerChoice === "paper" && playerChoice === "rock"){
+                    playerWon = false;
+                }else if (computerChoice === "paper" && playerChoice === "scissors"){
+                    playerWon = true;
+                }else if (computerChoice === "rock" && playerChoice === "paper"){
+                    playerWon = true;;
+                }else if (computerChoice === "rock" && playerChoice === "scissors"){
+                    playerWon = false;;
+                }else if (computerChoice === "scissors" && playerChoice === "paper"){
+                    playerWon = false;
+                }else if (computerChoice === "scissors" && playerChoice === "rock"){
+                    playerWon = true;;
+                }
+
+                if(playerWon){
+                    return `You Win ! ${playerChoice} beats ${computerChoice}`;
+                }else{
+                    return `You Lose ! ${computerChoice} beats ${playerChoice}`;
+                }
+            }
+
+            function game(){
+                for(let i = 0; i < 5; i++){
+                    alert(playRound(playerSelection(), computerSelection()));
+                }
+            }
+        </script>
     </body>
 </html>
