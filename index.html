@@ -1,48 +1,39 @@
 <html>
     <head>
-        
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <script>
-            let choices = ["rock", "paper", "scissors"];
+        <div id="game">
+            <div class="display" id="players-div">
+                <span class="players" id="player">Player</span>
+                <span class="players" id="computer">Computer</span>
+            </div>
+    
+            <div class="display" id="scores-div">
+                <span class="score" id="player-score">500</span>
+                <span class="score" id="round">Round 85</span>
+                <span class="score" id="computer-score">100</span>
+            </div>
+            
+            <div class="display" id="choices-div">
+                <span class="choice" id="player-choice">Rock</span>
+                <span class="choice" id="computer-choice">Scissors</span>
+            </div>
 
-            function computerSelection(){
-                return choices[Math.floor(Math.random() * choices.length)];
-            }
+            <div class="display" id="result-div">
+                <span id="result" class="result">You won</span>
+                <span id="description" class="result">rock beats paper</span>
+            </div>
+            
+            
 
-            function playerSelection(){
-                return prompt("Choose between rock, paper or scissors:").toLowerCase()
-            }
-
-            function playRound(playerChoice, computerChoice){
-                let playerWon = false
-
-                if (computerChoice === "paper" && playerChoice === "rock"){
-                    playerWon = false;
-                }else if (computerChoice === "paper" && playerChoice === "scissors"){
-                    playerWon = true;
-                }else if (computerChoice === "rock" && playerChoice === "paper"){
-                    playerWon = true;;
-                }else if (computerChoice === "rock" && playerChoice === "scissors"){
-                    playerWon = false;;
-                }else if (computerChoice === "scissors" && playerChoice === "paper"){
-                    playerWon = false;
-                }else if (computerChoice === "scissors" && playerChoice === "rock"){
-                    playerWon = true;;
-                }
-
-                if(playerWon){
-                    return `You Win ! ${playerChoice} beats ${computerChoice}`;
-                }else{
-                    return `You Lose ! ${computerChoice} beats ${playerChoice}`;
-                }
-            }
-
-            function game(){
-                for(let i = 0; i < 5; i++){
-                    alert(playRound(playerSelection(), computerSelection()));
-                }
-            }
-        </script>
+            <div class="display" id="buttons-div">
+                <button class="button" id="rock-btn">Rock</button>
+                <button class="button" id="paper-btn">Paper</button>
+                <button class="button" id="scissors-btn">Scissors</button>
+            </div>
+        </div>
+        
     </body>
+    <script src="script.js"></script>
 </html>
